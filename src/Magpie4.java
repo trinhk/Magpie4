@@ -35,11 +35,7 @@ public class Magpie4
 		{
 			response = "Say something, please.";
     }
-        else if (findKeyword(statement, "") >=0)
-        {
-            response = "";
 
-        }
 		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Why so negative?";
@@ -95,7 +91,7 @@ public class Magpie4
 					.length() - 1);
 		}
 		int psn = findKeyword (statement, "I want", 0);
-		String restOfStatement = statement.substring(psn + 9).trim();
+		String restOfStatement = statement.substring(psn + 7).trim();
 		return "Would you really be happy if you had " + restOfStatement + "?";
 	}
 
@@ -112,7 +108,7 @@ public class Magpie4
 		//  Remove the final period, if there is one
 		statement = statement.trim();
 		String lastChar = statement.substring(statement
-				.length() - 1);
+				.length() );
 		if (lastChar.equals("."))
 		{
 			statement = statement.substring(0, statement
@@ -122,7 +118,7 @@ public class Magpie4
 		int psnOfYou = findKeyword (statement, "I", 0);
 		int psnOfMe = findKeyword (statement, "you", psnOfYou + 3);
 		
-		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe).trim();
+		String restOfStatement = statement.substring(psnOfYou + 2, psnOfMe).trim();
 		return "Why do you " + restOfStatement + " me?";
 	}
 	
